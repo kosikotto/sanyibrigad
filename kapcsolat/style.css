@@ -1,0 +1,951 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: black;
+}
+
+body {
+    width: 100%;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+    rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+    background-size: contain;
+    color: white;
+    z-index: 99999;
+    transition: opacity 300ms;
+}
+
+.loading::after {
+    content: "";
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white;
+    border-top-color: #ffae00;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px black;
+
+    animation-name: loadingSpinner;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.loadingIcon {
+    animation-name: loadingSpinner;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loadingSpinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingDone {
+    opacity: 0 !important;
+}
+
+.loaded {
+    display: none;
+}
+
+.loadedDone {
+    display: flex;
+    flex-grow: 1;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+    rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+    justify-content: center;
+}
+
+@media (min-width:1001px) {
+    #linkNavElements:hover {
+        color: #ffffff;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        transition: 300ms;
+    }
+
+    #lablecLink:hover {
+        transform: translateY(-5px);
+    }
+
+    #felLogo:hover {
+        opacity: 1;
+    }
+
+    #profilKep:hover {
+        opacity: 0.5;
+        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.808);
+        transform: translateY(-5px);
+    }
+    
+    a.elerhetosegText:hover, #elerhetosegText:hover {
+        color: white;
+        font-size: bolder;
+        transition: 300ms;
+    }
+    
+    a.elerhetosegText:focus, #elerhetosegText:focus {
+        color: white;
+    }
+
+    .links {
+        width: 400px;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    
+    .links:hover {
+        cursor: pointer;
+    }
+    
+    .link1, .link2, .link3 {
+        height: 100%;
+        width: 110px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        color: rgb(200, 200, 200) !important;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        text-decoration: none;
+        z-index: 9999;
+        transition: color 450ms;
+    }
+    
+    .link1:hover, .link2:hover, .link3:hover {
+        color: rgb(255, 255, 255) !important;
+    }
+    
+    .first, .second, .third {
+        transform: translateY(0px);
+        transition: transform 250ms;
+    }
+    
+    .active {
+        transform: translateY(10px) !important;
+        transition: transform 250ms;
+    }
+    
+    .activeBackground {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color:#db9600;
+        background-size: cover;
+        border-radius: 50%;
+        top: -16px;
+        z-index: 5;
+        border-width: 6.5px;
+        border-style: solid;
+        border-color: rgb(117,27,27);
+        pointer-events: none;
+        -webkit-backdrop-filter: blur(6px) !important;
+        backdrop-filter: blur(6px) !important;
+        transition: left 450ms, background-image 200ms;
+    }
+
+    .activeBackground1 {
+        left: 15.5% !important;
+        background-image: url("../kepek/home.png") !important;
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackground2 {
+        left: 43.5% !important;
+        background-image: url("../kepek/money.png") !important;
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackground3 {
+        left: 70% !important;
+        background-image: url("../kepek/contact.png") !important;
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackgroundClicked1 {
+        left: 15.5%;
+        background-image: url("../kepek/home.png");
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackgroundClicked2 {
+        left: 43.5%;
+        background-image: url("../kepek/money.png");
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackgroundClicked3 {
+        left: 70%;
+        background-image: url("../kepek/contact.png");
+        transition: left 450ms, background-image 200ms;
+    }
+
+}
+
+a, a:link, a:visited, a:active, a:link:active, a:visited:active {
+    color: transparent;
+    cursor:pointer;
+}
+
+#mainContainer {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+    rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+    background-size: contain;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    width: 100%;
+    flex: 1;
+    margin-top: 100px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}   
+
+#coverPictureDiv {
+    width: 1000px;
+    height: 450px;
+    position: relative;
+    margin-top: 50px;
+}
+
+#coverPicture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50000px;
+    border-style: solid;
+    border-width: 5px;
+    border-color:#ffae00;
+    box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.8);
+}
+
+#content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.mainH1Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainH1 {
+    width: 90%;
+    margin-top: 60px;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 30px;
+    color: #ffae00;
+}
+
+#mainH2 {
+    color: #ffae00;
+    margin-bottom: 10px;
+}
+
+#orangeText {
+    text-decoration: underline;
+}
+
+#mainH2OrangeText {
+    color: #ffae00;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#telefonDiv1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#telefonDiv2 {
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 25px;
+}
+
+#emailDiv {
+    text-align: center;
+}
+
+#profilKep {
+    height: 256px;
+    width: 256px;
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ffae00;
+    transition: 300ms;
+}
+
+a.elerhetosegText, #elerhetosegText {
+    color: rgba(255, 255, 255, 0.404);
+    transition: 300ms;
+}
+
+/* fejlec elem formazasa */
+
+#header {
+    height: 80px;
+    width: 90%;
+    background-color: #ffae009d;
+    position: fixed;
+    margin-top: 20px;
+    border-radius: 10px;
+    transform: translateY(0%);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+    left:5%;
+    z-index: 9999;
+    transition: transform 800ms;
+}
+
+#felLogo {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    display: flex;
+    left: 5%;
+    bottom: 50%;
+    transform: translateX(-500%);
+    opacity: 0.5;
+    z-index: 9999;
+    transition: transform 300ms, opacity 300ms;
+}
+
+.felLogoHide {
+    transform: translateX(0%) !important;
+    transition: transform 300ms;
+}
+
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+
+    #header {
+        background-color: #ffae00f6;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    #lablec {
+        background-color: #ffae00f6 !important;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .activeBackground {
+        background-color: #ffc13cf6 !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+        backdrop-filter: blur(6px) !important;
+    }
+}
+
+#navBar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#logo {
+    text-decoration: none;
+    font-size: xx-large;
+    letter-spacing: -1px;
+    -webkit-text-stroke-color: #ffae00;
+    -webkit-text-stroke-width: 1px;
+    font-weight: bolder;
+    border-right: #ffffff3b;
+    border-right-style: solid;
+    border-right-width: 2.5px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+#logoFirstPart {
+    color: red;
+}
+
+#logoSecondPart {
+    color: white;
+}
+
+#navElements {
+    display: inline-block;
+    list-style-type: none;
+    padding-right: 50px;
+    margin-left: 25px;
+}
+
+#linkNavElements {
+    text-decoration: none;
+    font-size: x-large;
+    color: rgba(255, 255, 255, 0.493);
+    font-weight: bold;
+    transition: 300ms;
+}
+
+#linkNavElements:focus {
+    color: #ffffff;
+    font-weight: bolder;
+}
+
+#linesLink {
+    text-decoration: none;
+    list-style-type: none;
+    display: none;
+}
+
+#lines1 {
+    background-color: rgb(255, 255, 255);
+    height: 2px;
+    width: 30px;
+    transition: 300ms;
+}
+
+#lines2 {
+    background-color: rgb(255, 255, 255);
+    height: 2px;
+    width: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transform: translateX(0);
+    transition: 300ms;
+}
+
+#lines3 {
+    background-color: rgb(255, 255, 255);
+    height: 2px;
+    width: 30px;
+    transition: 300ms;
+}
+
+#hamburgerUlElements {
+    display: none;
+    z-index: 9999;
+}
+
+.headerHide {
+    transform: translateY(-150%) !important;
+    transition: all 800ms;
+}
+
+.hamburgerNavBarOpen {
+    transform: translateX(0) !important;
+    box-shadow: 0 20px 16px -16px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    transition: all 800ms;
+}
+
+.hamburgerNavBarHide {
+    transform: translateX(-100%) !important;
+    z-index: 9999;
+    transition: all 800ms;
+}
+
+.linesContainer {
+    display: none;
+}
+
+/*lablec formazasa */
+
+#lablec {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 90%;
+    height: fit-content;
+    background-color: #ffae009d;
+    margin-top: 20px;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    left: 5%;
+    margin-bottom: 10px;
+}
+
+#lablecLista {
+    list-style-type: none;
+    padding: 0;
+}
+
+#lablecCim {
+    margin-bottom: 10px;
+    font-size: x-large;
+    text-decoration: underline;
+}
+
+#imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#lablecLink {
+    transition: transform 0.3s;
+}
+
+.lablecLinkMiddle {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.verticalLine {
+    display: inline-block;
+    width: 100%;
+    height: 2.5px;
+    background-color: white;
+    border-radius: 100000px;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+@media (max-width:1000px) {
+
+    .links {
+        display: none;
+    }
+
+    .linesContainer {
+        display: block;
+    }
+    
+    #felLogo {
+        height: 50px;
+        width: 50px;
+        position: fixed;
+        display: flex;
+        left: 0.5%;
+        bottom: 50%;
+        transform: translateX(-500%);
+        opacity: 0.5;
+        transition: transform 300ms, opacity 300ms;
+    }
+    
+    .felLogoHide {
+        transform: translateX(0%) !important;
+        transition: transform 300ms;
+    }
+
+    #mainContainer {
+        background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+        rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+        background-size: contain;
+        display: block;
+    }
+
+    #lablec {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0px;
+        border-radius: 0%;
+        text-align: center;
+        width: 100%;
+        height: fit-content;
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+        color: white;
+        position: static;
+    }
+
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+        #lablec {
+            background-color: #ffae00f6 !important;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0px;
+            border-radius: 0%;
+            text-align: center;
+            width: 100%;
+            height: fit-content;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+            color: white;
+            position: static;
+        }
+
+        #header {
+            margin-top: 0px;
+            width: 100%;
+            border-radius: 0%;
+            background-color: #ffae00f6 !important;
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+            left: 0;
+        }
+
+        .hamburgerNavBar {
+            height: 150px;
+            width: 100%;
+            margin-top: 79px;
+            background-color: #ffae00f6 !important;
+            color: rgb(255, 255, 255);
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-100%);
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+            box-shadow: 0px 20px 16px -16px rgba(0, 0, 0, 0.5) !important;
+            z-index: 9999;
+            transition: all 800ms;
+        }
+
+        .hamburgerNavBarWhenOpen {
+            box-shadow: none;
+            z-index: 9999;
+        }
+
+    }
+
+    .linesContainerOpenAlign {
+        margin-right: 30px !important;
+    }
+
+    #linesLink {
+        display: block;
+    }
+
+    .linesLinkClick {
+        transform-origin: center;
+        position: absolute;
+        transform: rotate(405deg);
+        margin: 0px !important;
+        transition: transform 300ms;
+    }
+
+    .linesLinkClick2 {
+        transform-origin: center;
+        position: absolute;
+        transform: rotate(-405deg);
+        margin: 0px !important;
+        transition: transform 300ms;
+    }
+
+    .linesLinkClickMiddle {
+        transform: translateX(500%) !important;
+        position: absolute;
+        display: flex;
+        top: 36%;
+        transition: transform 300ms;
+    }
+
+    #header {
+        margin-top: 0px;
+        width: 100%;
+        border-radius: 0%;
+        background-color: #ffae009d;
+        left: 0;
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+    }
+
+    #navElements {
+        display:none;
+    }
+
+    .hamburgerNavBar {
+        height: 150px;
+        width: 100%;
+        margin-top: 79px;
+        background-color: #ffae009d;
+        color: rgb(255, 255, 255);
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-100%);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 20px 16px -16px rgba(0, 0, 0, 0.5) !important;
+        z-index: 9999;
+        transition: all 800ms;
+    }
+
+    .hamburgerNavBarWhenOpen {
+        box-shadow: none;
+        z-index: 9999;
+    }
+
+    #hamburgerNavElements {
+        text-decoration: none;
+        list-style-type: none;
+        z-index: 9999;
+    }
+
+    #hamburgerLinkNavElements1 {
+        font-weight: bold;
+        font-size: xx-large;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.493);
+        z-index: 9999;
+        transition: 300ms;
+    }
+
+    #hamburgerLinkNavElements2 {
+        font-weight: bold;
+        font-size: xx-large;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.493);
+        z-index: 9999;
+        transition: 300ms;
+    }
+
+    #hamburgerLinkNavElements3 {
+        font-weight: bold;
+        font-size: xx-large;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.493);
+        z-index: 9999;
+        transition: 300ms;
+    }
+
+    #hamburgerUlElements {
+        display: block;
+        z-index: 9999;
+    }
+
+    #hamburgerLinkNavElements1:hover {
+        color: #ffffff;
+        letter-spacing: 1px;
+        font-weight: bolder;
+        z-index: 9999;
+        transition: all 300ms;
+    }
+
+    #hamburgerLinkNavElements2:hover {
+        color: #ffffff;
+        letter-spacing: 1px;
+        font-weight: bolder;
+        z-index: 9999;
+        transition: all 300ms;
+    }
+
+    #hamburgerLinkNavElements3:hover {
+        color: #ffffff;
+        letter-spacing: 1px;
+        font-weight: bolder;
+        z-index: 9999;
+        transition: all 300ms;
+    }
+}
+
+@media (max-width:420px) {
+    #lablecCim {
+        margin-bottom: 10px;
+        font-size: large;
+        text-decoration: underline;
+    }
+
+}
+
+@media (max-width:340px) {
+    #mainH1 {
+        font-size: x-large;
+    }
+}
+
+@media (max-width:320px) {
+
+    #lablecCim {
+        margin-bottom: 10px;
+        font-size: medium;
+        text-decoration: underline;
+    }
+}
+
+@media (max-width:300px) {
+
+    #logo {
+        font-size: x-large !important;
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width:290px) {
+
+    #lablecCim {
+        margin-bottom: 10px;
+        font-size: small;
+        text-decoration: underline;
+    }
+}
+
+@media (max-width:240px) {
+
+    #lablecCim {
+        margin-bottom: 10px;
+        font-size: x-small;
+        text-decoration: underline;
+    }
+
+    .Copyright {
+        font-size: x-small;
+    }
+
+    #main {
+        display:block;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    #logo {
+        text-decoration: none;
+        font-size: x-large;
+        letter-spacing: -1px;
+        -webkit-text-stroke-color: #ffae00;
+        -webkit-text-stroke-width: 0.5px;
+        font-weight: bolder;
+        border-right: #ffffff3b;
+        border-right-style: solid;
+        border-right-width: 2.5px;
+        padding-right: 10px;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width:1300px) {
+    #coverPictureDiv {
+        width: 800px;
+        height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+@media (max-width:455px) {
+#coverPictureDiv {
+        width: 350px !important;
+        height: 175px !important;
+    }
+}
+
+@media (max-width:865px) {
+    #coverPictureDiv {
+        width: 700px;
+        height: 350px;
+    }
+}
+
+@media (max-width:735px) {
+    #coverPictureDiv {
+        width: 600px;
+        height: 300px;
+    }
+}
+
+@media (max-width:735px) {
+    #coverPictureDiv {
+        width: 600px;
+        height: 300px;
+    }
+}
+
+@media (max-width:650px) {
+    #coverPictureDiv {
+        width: 500px;
+        height: 250px;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width:635px) {
+    #main {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width:550px) {
+    #coverPictureDiv {
+        width: 450px;
+        height: 235px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width:480px) {
+	#coverPictureDiv {
+        width: 400px;
+        height: 220px;
+        margin-top: 80px;
+    }
+
+    .loading::after {
+        height: 100px;
+        width: 100px;
+        border-width: 6px;
+    }
+
+    .loadingMessage {
+        font-size: small;
+    }
+}
+
+@media (max-width:380px) {
+	#coverPictureDiv {
+        width: 300px !important;
+        height: 160px !important;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width:330px) {
+    #coverPictureDiv {
+        display: none !important;
+    }
+}

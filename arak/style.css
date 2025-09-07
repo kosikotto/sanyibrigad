@@ -1,0 +1,1099 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: black;
+}
+
+a, a:link, a:visited, a:active, a:link:active, a:visited:active {
+    color: transparent;
+    cursor:pointer;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+    rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+    rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+    background-size: contain;
+    color: white;
+    z-index: 99999;
+    transition: opacity 300ms;
+}
+
+.loading::after {
+    content: "";
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: white;
+    border-top-color: #ffae00;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px black;
+
+    animation-name: loadingSpinner;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.loadingIcon {
+    animation-name: loadingSpinner;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loadingSpinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingDone {
+    opacity: 0 !important;
+}
+
+.loaded {
+    display: none;
+}
+
+.loadedDone {
+    display: flex;
+    flex-grow: 1;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+    rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+    justify-content: center;
+}
+
+#coverPictureDiv {
+    width: 1000px;
+    height: 450px;
+    position: relative;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+#coverPicture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50000px;
+    border-style: solid;
+    border-width: 5px;
+    border-color:#ffae00;
+    box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width:1001px) {
+    #linkNavElements:hover {
+        color: white;
+        font-weight: bolder;
+        letter-spacing: 1px;
+    }
+
+    #lablecLink:hover {
+        transform: translateY(-5px);
+    }
+
+    #felLogo:hover {
+        opacity: 1;
+    }
+
+    .links {
+        width: 400px;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    
+    .links:hover {
+        cursor: pointer;
+    }
+    
+    .link1, .link2, .link3 {
+        height: 100%;
+        width: 110px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        color: rgb(200, 200, 200) !important;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        text-decoration: none;
+        z-index: 9999;
+        transition: color 450ms;
+    }
+    
+    .link1:hover, .link2:hover, .link3:hover {
+        color: rgb(255, 255, 255) !important;
+    }
+    
+    .first, .second, .third {
+        transform: translateY(0px);
+        transition: transform 250ms;
+    }
+    
+    .active {
+        transform: translateY(10px) !important;
+        transition: transform 250ms;
+    }
+    
+    .activeBackground {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color:#db9600;
+        background-size: cover;
+        border-radius: 50%;
+        top: -16px;
+        z-index: 5;
+        border-width: 6.5px;
+        border-style: solid;
+        border-color: rgb(117,27,27);
+        pointer-events: none;
+        -webkit-backdrop-filter: blur(6px) !important;
+        backdrop-filter: blur(6px) !important;
+        transition: left 450ms, background-image 200ms;
+    }
+
+    .activeBackground1 {
+        left: 15.5% !important;
+        background-image: url("../kepek/home.png") !important;
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackground2 {
+        left: 43.5% !important;
+        background-image: url("../kepek/money.png") !important;
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackground3 {
+        left: 70% !important;
+        background-image: url("../kepek/contact.png") !important;
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackgroundClicked1 {
+        left: 15.5%;
+        background-image: url("../kepek/home.png");
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackgroundClicked2 {
+        left: 43.5%;
+        background-image: url("../kepek/money.png");
+        transition: left 450ms, background-image 200ms;
+    }
+    
+    .activeBackgroundClicked3 {
+        left: 70%;
+        background-image: url("../kepek/contact.png");
+        transition: left 450ms, background-image 200ms;
+    }
+}
+
+#tableContainer {
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#tableDiv {
+    margin:0%;
+    padding: 0%;
+    color: white;
+    height: 100%;
+    font-size: large;
+    font-weight: bold;
+    justify-content:center;
+    width: 90%;
+    border-collapse: collapse;
+}
+
+thead {
+    color: #ffae00 !important;
+}
+
+thead tr td {
+    background-color: rgb(107, 46, 46);
+    height: 75px;
+}
+
+thead tr td:nth-child(1) {
+    border-top-left-radius: 12px;
+}
+
+thead tr td:nth-child(4) {
+    border-top-right-radius: 12px;
+}
+
+#paros {
+    background-color: rgb(141, 57, 57);
+}
+
+#paratlan {
+    background-color: rgb(107, 46, 46);
+}
+
+td {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom-style:solid;
+    border-width: 2px;
+    border-color: rgba(209, 85, 85, 0.75);
+}
+
+#zaroDiv {
+    color:#ffae00;
+    font-weight: bolder;
+    font-size: large;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+#arak {
+    color: white;
+    font-weight: bolder;
+}
+
+h2 {
+    color: #ffae00;
+    text-decoration: underline;
+}
+
+#mainLi {
+    color: white;
+    font-weight: inherit;
+}
+
+#mainUl {
+    margin: auto;
+    color: white;
+    list-style-image: url("../kepek/tabicon2.png");
+    line-height: 3.5;
+}
+
+#column1 {
+    width: 25%;
+    color: #ffae00;
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+#column2, #column3, #column4 {
+    width: auto;
+}
+
+#main {
+    width: 100%;
+    flex: 1;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  
+    rgba(87, 37, 37) 0%, rgb(165, 17, 17) 90% , rgb(71, 1, 1) 99%);
+    background-size: contain;
+    margin-top: 100px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}   
+
+#kartyaContainer {
+    width: 80%;
+    height: 100%;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+#listaArak {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.kartya {
+    position: relative;
+    height: 220px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: linear-gradient(45deg, rgb(255, 166, 0), rgb(238, 155, 0), rgb(221, 144, 0));
+    color: white;
+    border-radius: 12px;
+    padding: 5px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    border-width: 2.5px;
+    border-style: solid;
+    border-color: white;
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+.emailLinkKartya {
+    color: red !important;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.kartyaBig {
+    position: relative;
+    height: fit-content;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(45deg, rgb(255, 166, 0), rgb(238, 155, 0), rgb(221, 144, 0));
+    color: white;
+    border-radius: 12px;
+    padding: 10px;
+    border-width: 2.5px;
+    border-style: solid;
+    border-color: white;
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+.kartyaH1, .kartyaH2  {
+    color: white;
+    text-shadow: 1px 1px 1.5px white;
+}
+
+.kartyaH2 {
+    text-decoration: none;
+}
+
+.kartyaH3 {
+    color: rgb(235, 235, 235);
+}
+
+.kartyaH3Darker {
+    color: rgb(225, 225, 225);
+}
+
+#header {
+    height: 80px;
+    width: 90%;
+    background-color: #ffae009d;
+    position: fixed;
+    margin-top: 20px;
+    border-radius: 10px;
+    transform: translateY(0%);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    transition: transform 800ms;
+}
+
+#felLogo {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    display: flex;
+    left: 5%;
+    bottom: 50%;
+    transform: translateX(-500%);
+    opacity: 0.5;
+    z-index: 9999;
+    transition: transform 300ms, opacity 300ms;
+}
+
+.felLogoHide {
+    transform: translateX(0%) !important;
+}
+
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    
+    #header {
+        background-color: #ffae00f6;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    #lablec {
+        height: fit-content;
+        background-color: #ffae00f6 !important;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        left: 5%;
+        margin-bottom: 20px;
+    }
+
+    .activeBackground {
+        background-color: #ffc13cf6 !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+        backdrop-filter: blur(6px) !important;
+    }
+}
+
+#navBar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#logo {
+    text-decoration: none;
+    font-size: xx-large;
+    letter-spacing: -1px;
+    -webkit-text-stroke-color: #ffae00;
+    -webkit-text-stroke-width: 1px;
+    font-weight: bolder;
+    border-right: #ffffff3b;
+    border-right-style: solid;
+    border-right-width: 2.5px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+#logoFirstPart {
+    color: red;
+}
+
+#logoSecondPart {
+    color: white;
+}
+
+#linkNavElements {
+    text-decoration: none;
+    font-size: x-large;
+    color: rgba(255, 255, 255, 0.493);
+    font-weight: bold;
+    transition: 300ms;
+}
+
+#linkNavElements:focus {
+    color:white;
+    font-weight: bolder;
+}
+
+#linesLink {
+    text-decoration: none;
+    list-style-type: none;
+    display: none;
+}
+
+#lines1, #lines2, #lines3 {
+    background-color: rgb(255, 255, 255);
+    height: 2px;
+    width: 30px;
+    transition: transform 300ms;
+}
+
+#lines2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transform: translateX(0);
+}
+
+#hamburgerUlElements {
+    display: none;
+}
+
+.headerHide {
+    transform: translateY(-150%) !important;
+    transition: transform 800ms;
+}
+
+.hamburgerNavBarOpen {
+    z-index: 9999;
+    transform: translateX(0) !important;
+    box-shadow: 0 20px 16px -16px rgba(0, 0, 0, 0.5);
+    transition: transform 800ms;
+}
+
+.hamburgerNavBarHide {
+    z-index: 9999;
+    transform: translateX(-100%) !important;
+    transition: transform 800ms;
+}
+
+.linesContainer {
+    display: none;
+}
+
+#lablec {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 90%;
+    height: fit-content;
+    background-color: #ffae009d;
+    margin-top: 20px;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    color: white;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+#lablecLista {
+    list-style-type: none;
+    padding: 0;
+}
+
+#lablecCim {
+    margin-bottom: 10px;
+    font-size: x-large;
+    text-decoration: underline;
+}
+
+#imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.lablecLinkMiddle {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+#lablecLink {
+    transition: transform 0.3s;
+}
+
+.verticalLine {
+    display: inline-block;
+    width: 100%;
+    height: 2.5px;
+    background-color: white;
+    border-radius: 100000px;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+@media (max-width:1300px) {
+    #coverPictureDiv {
+        width: 800px;
+        height: 400px;
+    }
+}
+
+@media (max-width:1100px) {
+    #listaArak {
+        width: 80%;
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+    }
+
+    .kartya {
+        margin-right: 0px;
+    }
+}
+
+@media (max-width:900px) {
+    .kartyaBig {
+        width: 500px;
+    }
+}
+
+@media (max-width:770px) {
+    .kartyaBig {
+        width: 400px;
+    }
+}
+
+@media (max-width:645px) {
+
+    #listaArak {
+        width: 80%;
+        gap: 0px;
+    }
+
+    .kartya {
+		height: 320px;
+        width: 300px;
+    }
+
+    .kartyaKicsi {
+        height: 240px !important;
+    }
+
+    .kartyaBig {
+        height: fit-content;
+    }
+}
+
+@media (max-width:520px) {
+    .kartyaH1 {
+        font-size: larger;
+    }
+
+    .kartyaH2 {
+        font-size: large;
+    }
+
+    .kartyaH3Darker {
+        font-size: medium;
+    }
+
+    .katyaH3Largekics {
+        font-size: medium !important;
+    }
+
+    .kartya {
+        height: 300px;
+        width: 250px;
+    }
+
+    .kartyaKicsi {
+        height: 200px !important;
+    }
+
+    .kartyaBig {
+        width: 280px;
+    }
+}
+
+@media (max-width:500px) {
+    .kartyaBig {
+        width: 250px;
+    }
+}
+
+@media (max-width:455px) {
+
+    #coverPictureDiv {
+        width: 350px !important;
+        height: 175px !important;
+    }
+
+    .kartyaH1 {
+        font-size: large;
+    }
+
+    .kartyaH2 {
+        font-size: medium;
+    }
+
+    .kartyaH3Darker {
+        font-size: small;
+    }
+
+    .katyaH3Largekics {
+        font-size: small !important;
+    }
+
+    .kartyaKicsiLarge {
+        font-size: medium;
+    }
+
+    .kartya {
+        position: relative;
+        height: 250px;
+        width: 200px;
+    }
+
+    .large2 {
+        height: 200px !important;
+    }
+
+    .kartyaKicsiLarge {
+        font-size: small;
+    }
+
+    .kartyaKicsi {
+        height: 120px !important;
+        width: 200px !important;
+    }
+
+    .kartyaBig {
+        width: 200px;
+    }
+}
+
+@media (max-width:865px) {
+    #coverPictureDiv {
+        width: 700px;
+        height: 350px;
+    }
+}
+
+@media (max-width:735px) {
+    #coverPictureDiv {
+        width: 600px;
+        height: 300px;
+    }
+}
+
+@media (max-width:650px) {
+    #coverPictureDiv {
+        width: 500px;
+        height: 250px;
+        margin-bottom: 60px;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width:635px) {
+    #main {
+        margin-top: 60px;
+        width: 80%;
+        height: 100%;
+    }
+    #tableDiv {
+        font-size:small !important;
+    }
+
+    #kartyaContainer {
+        margin-bottom: -30px !important;
+    }
+}
+
+@media (max-width:550px) {
+    #coverPictureDiv {
+        width: 450px;
+        height: 235px;
+        margin-top: 80px;
+    }
+
+    #lablecCim {
+        font-size: large;
+    }
+}
+
+@media (max-width:535px) {
+    #tableDiv {
+        font-size:x-small !important;
+    }
+
+    thead tr td {
+        height: 50px;
+    }
+}
+
+@media (max-width:480px) {
+    #coverPictureDiv {
+        width: 400px;
+        height: 220px;
+        margin-bottom: 60px;
+    }
+
+    .loading::after {
+        height: 100px;
+        width: 100px;
+        border-width: 6px;
+    }
+
+    .loadingMessage {
+        font-size: small;
+    }
+}
+
+@media (max-width:420px) {
+
+    #main {
+        width: 100% !important;
+        padding: 0px;
+    }
+
+    #tableDiv {
+        width: 100%;
+        font-size:xx-small !important;
+        padding: 0px;
+        margin: 0px;
+    }
+}
+
+@media (max-width:380px) {
+
+    #coverPictureDiv {
+        width: 300px !important;
+        height: 160px !important;
+    }
+
+    .kartyaBig {
+        width: 200px;
+    }
+
+    #tableDiv {
+        font-size:6px !important;
+    }
+
+    thead tr td {
+        height: 30px;
+    }
+}
+
+@media (max-width:330px) {
+    #coverPictureDiv {
+        display: none !important;
+    }
+
+    #listaArak {
+        margin-top: 60px;
+    }
+
+    .kartyaH1 {
+        font-size: medium;
+    }
+
+    .kartyaH2 {
+        font-size: small;
+    }
+
+    .kartya {
+        width: 150px !important;
+        margin-bottom: 25px;
+    }
+
+    .kartyaKicsi {
+        height: 150px !important;
+        width: 150px !important;
+    }
+
+    .large2 {
+        height: 220px !important;
+    }
+
+    .kartyaBig {
+        width: 160px;
+    }
+
+    .kartyaKicsiLarge {
+        font-size: x-small;
+    }
+}
+
+@media (max-width:405px) {
+    .Copyright {
+        font-size: small;
+    }
+}
+
+@media (max-width:380px) {
+    #lablecCim {
+        font-size: medium;
+    }
+}
+
+@media (max-width:340px) {
+    #lablecCim {
+        font-size: small;
+    }
+
+    .Copyright {
+        font-size: x-small;
+    }
+}
+
+@media (max-width:300px) {
+
+    #logo {
+        font-size: x-large !important;
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width:1000px) {
+
+    .links {
+        display: none;
+    }
+
+    .linesContainer {
+        display: block;
+    }
+
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+        #lablec {
+            background-color: #ffae00f6 !important;
+            margin-bottom: 0px;
+            border-radius: 0%;
+            height: fit-content;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+            position: static;
+        }
+
+        #header {
+            margin-top: 0px;
+            width: 100%;
+            border-radius: 0%;
+            background-color: #ffae00f6 !important;
+            box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+            left: 0;
+        }
+
+        .hamburgerNavBar {
+            background-color: #ffae00f6 !important;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+    }
+
+    #felLogo {
+        left: 0.5%;
+    }
+
+    #lablec {
+        width: 100%;
+        height: fit-content;
+        border-radius: 0px;
+        margin-bottom: 0px;
+    }
+
+    #zaroDiv {
+        font-size: medium !important;
+    }
+
+    #tableDiv {
+        font-size: medium;
+    }
+
+    #logo {
+        text-decoration: none;
+        font-size: xx-large;
+        letter-spacing: -1px;
+        -webkit-text-stroke-color: #ffae00;
+        -webkit-text-stroke-width: 1px;
+        font-weight: bolder;
+    }
+
+    .linesContainerOpenAlign {
+        margin-right: 30px !important;
+    }
+
+    #linesLink {
+        display: block;
+    }
+
+    .linesLinkClick, .linesLinkClick2 {
+        transform-origin: center;
+        position: absolute;
+        margin: 0px !important;
+        transition: transform 300ms;
+    }
+
+    .linesLinkClick {
+        transform: rotate(405deg);
+    }
+
+    .linesLinkClick2 {
+        transform: rotate(-405deg);
+    }
+
+    .linesLinkClickMiddle {
+        transform: translateX(500%) !important;
+        position: absolute;
+        display: flex;
+        top: 36%;
+        transition: transform 300ms;
+    }
+
+    #header {
+        margin-top: 0px;
+        width: 100%;
+        border-radius: 0%;
+        background-color: #ffae009d;
+        box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+    }
+
+    #navElements {
+        display:none;
+    }
+
+    .hamburgerNavBar {
+        z-index: 9999;
+        height: 150px;
+        width: 100%;
+        margin-top: 79px;
+        background-color: #ffae009d;
+        color: rgb(255, 255, 255);
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-100%);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 20px 16px -16px rgba(0, 0, 0, 0.5) !important;
+        transition: transform 800ms;
+    }
+
+    .hamburgerNavBarWhenOpen {
+        z-index: 9999;
+        box-shadow: none;
+    }
+
+    #hamburgerNavElements {
+        text-decoration: none;
+        list-style-type: none;
+    }
+
+    #hamburgerLinkNavElements1, #hamburgerLinkNavElements2, #hamburgerLinkNavElements3{
+        font-weight: bold;
+        font-size: xx-large;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.493);
+        transition: letter-spacing 300ms, font-weight 300ms, color 300ms;
+    }
+
+    #hamburgerUlElements {
+        display: block;
+    }
+
+    #hamburgerLinkNavElements1:hover, #hamburgerLinkNavElements2:hover, #hamburgerLinkNavElements3:hover {
+        color: #ffffff;
+        letter-spacing: 1px;
+        font-weight: bolder;
+    }
+}
+
+@media (max-width:450px) {
+    #zaroDiv {
+        font-size: small !important;
+    }
+}
